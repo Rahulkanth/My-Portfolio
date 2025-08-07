@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <!-- GSAP for animations -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <!-- OrbitControls for Three.js -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+  
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+  <!-- Progress Bar -->
+  <div class="progress-bar"></div>
+  
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="flex justify-between items-center">
+        <div class="flex items-center space-x-4">
+          <img class="profile-photo" src="D:\example\logork-removebg-preview.png" alt="Developer">
+          <div>
+            <h1 class="text-xl font-bold m-0">RAHULKANTH R</h1>
+            <p class="text-sm text-gray-400 m-0">Portfolio</p>
+          </div>
+        </div>
+        
+        <nav class="desktop-nav">
+          <ul class="flex space-x-6">
+            <li><a href="#home" class="text-white hover:text-primary transition">Home</a></li>
+            <li><a href="#projects" class="text-white hover:text-primary transition">Projects</a></li>
+            <li><a href="#skills" class="text-white hover:text-primary transition">Education</a></li>
+            <li><a href="#contact" class="text-white hover:text-primary transition">Contact</a></li>
+          </ul>
+        </nav>
+        
+        <button class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Mobile Menu -->
+  <div class="mobile-menu">
+    <button class="mobile-close-btn">
+      <i class="fas fa-times"></i>
+    </button>
+    <ul class="space-y-6 text-center">
+      <li><a href="#home" class="text-white hover:text-primary transition text-xl">Home</a></li>
+      <li><a href="#projects" class="text-white hover:text-primary transition text-xl">Projects</a></li>
+      <li><a href="#skills" class="text-white hover:text-primary transition text-xl">Education</a></li>
+      <li><a href="#contact" class="text-white hover:text-primary transition text-xl">Contact</a></li>
+    </ul>
+  </div>
+  
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="text-5xl font-bold mb-4 text-gradient">I'm<span class="text-blue-400"> RAHULKANTH R</span></h1>
+        <p class="text-lg mb-6">I'm Rahulkanth, a passionate Front-End Developer with a strong focus on crafting responsive, user-friendly web interfaces. I specialize in building modern web applications using HTML, CSS, JavaScript, and front-end frameworks like React.js. With a keen eye for design and a commitment to clean code, I strive to bridge the gap between design and technology to deliver seamless digital experiences. I'm always eager to learn new tools, collaborate with teams, and solve real-world problems through intuitive UI.</p>
+        <div class="flex space-x-4">
+          <a href="#projects" class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">View Projects</a>
+          <a href="#contact" class="px-6 py-3 border border-blue-500 text-white rounded-lg hover:bg-blue-500/20 transition">Get In Touch</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bg" id="hero-canvas"></div>
+  </section>
+  
+  <!-- Projects Section with 3D Gallery -->
+  <section id="projects" class="project-gallery">
+    <div class="container">
+      <h2 class="text-4xl font-bold mb-6 text-center">Project Gallery</h2>
+      <p class="text-center mb-12 max-w-2xl mx-auto">Explore my portfolio in an interactive 3D environment. Click on models to learn more about each project.</p>
+    </div>
+    
+    <div class="three-container" id="project-canvas"></div>
+    
+    <div class="project-overlay" id="project-info">
+      <h3 class="text-2xl font-bold mb-2" id="project-title">Project Title</h3>
+      <p class="mb-4" id="project-description">Project description will appear here when you click on a 3D model.</p>
+      <div class="flex space-x-3">
+        <span class="px-3 py-1 bg-blue-500/30 text-blue-200 rounded-full text-sm">Three.js</span>
+        <span class="px-3 py-1 bg-purple-500/30 text-purple-200 rounded-full text-sm">WebGL</span>
+        <span class="px-3 py-1 bg-green-500/30 text-green-200 rounded-full text-sm">GSAP</span>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section">
+    <div class="container">
+      <h2 class="text-4xl font-bold mb-6 text-center">Education</h2>
+      <p class="text-center mb-12 max-w-2xl mx-auto">A Front-End Developer with a strong foundation in web technologies and a passion for creating engaging, responsive user interfaces. Skilled in HTML, CSS, JavaScript, and modern frameworks like React.js, I enjoy bringing designs to life with clean code and intuitive user experiences. I focus on building websites that are not only visually appealing but also accessible and performance-optimized.</p>
+      
+      <div class="timeline">
+        <div class="timeline-line"></div>
+        
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3 class="text-xl font-bold">Bachelor of Engineering (Computer Science And Engineering)</h3>
+            <p class="text-sm text-blue-400">2022 - 2026</p>
+            <p>CGPA : 8.99</p>
+            <p>Hindusthan Institute of Technology</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3 class="text-xl font-bold">Computer Science</h3>
+            <p class="text-sm text-blue-400">2020 - 2022</p>
+            <p>Pecentage : 59%</p>
+            <p>Goverment Higer Secondary School</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3 class="text-xl font-bold">Commom Education</h3>
+            <p class="text-sm text-blue-400">2018 - 2020</p>
+            <p>Percentage : 68%</p>
+            <p>Goverment Secondary School</p>
+          </div>
+        </div>
+      </div>
+      
+      <h3 class="text-2xl font-bold mt-16 mb-8">Technical Skills</h3>
+      <div class="skills-grid">
+        <div class="skill-item">
+          <i class="fas fa-cube text-blue-400 text-3xl mb-3"></i>
+          <p>Three.js</p>
+        </div>
+        <div class="skill-item">
+          <i class="fab fa-js text-yellow-400 text-3xl mb-3"></i>
+          <p>JavaScript</p>
+        </div>
+        <div class="skill-item">
+          <i class="fab fa-react text-blue-400 text-3xl mb-3"></i>
+          <p>React</p>
+        </div>
+        <div class="skill-item">
+          <i class="fab fa-html5 text-orange-400 text-3xl mb-3"></i>
+          <p>HTML5</p>
+        </div>
+        <div class="skill-item">
+          <i class="fab fa-css3-alt text-blue-400 text-3xl mb-3"></i>
+          <p>CSS3</p>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-vr-cardboard text-purple-400 text-3xl mb-3"></i>
+          <p>WebXR</p>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-code text-green-400 text-3xl mb-3"></i>
+          <p>WebGL</p>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-paint-brush text-pink-400 text-3xl mb-3"></i>
+          <p>GSAP</p>
+        </div>
+        <div class="skill-item">
+          <i class="fab fa-node text-green-500 text-3xl mb-3"></i>
+          <p>Node.js</p>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-mobile-alt text-gray-400 text-3xl mb-3"></i>
+          <p>Responsive</p>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-palette text-red-400 text-3xl mb-3"></i>
+          <p>UI/UX</p>
+        </div>
+        <div class="skill-item">
+          <i class="fas fa-tools text-gray-400 text-3xl mb-3"></i>
+          <p>Blender</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+    <!-- Skills Section -->
+  <section id="skills" class="skills-section">
+    <div class="container">
+      <h2 class="text-4xl font-bold mb-6 text-center">Experience</h2>
+      <p class="text-center mb-12 max-w-2xl mx-auto">College projects </p>
+      
+      <div class="timeline">
+        <div class="timeline-line"></div>
+        
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3 class="text-xl font-bold">SIH (Smart India Hackathon)</h3>
+            <p class="text-sm text-blue-400">2023</p>
+            <p>Oil Prediction System</p>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3 class="text-xl font-bold">UIT NASA Space</h3>
+            <p class="text-sm text-blue-400">2023</p>
+            <p>Chemosynthesis</p>
+          </div>
+        </div>
+        
+          
+
+
+      <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <h3 class="text-xl font-bold">SPS (Student Project Scheme)</h3>
+            <p class="text-sm text-blue-400">2025</p>
+            <p>(COPD)Chronic Obstructive Pulmonary Diseace Prediction using Wearables</p>
+          </div>
+        </div>
+      </div>
+  
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="text-4xl font-bold mb-6 text-center">Contact</h2>
+      <p class="text-center mb-12 max-w-2xl mx-auto">Interested in working together? Fill out the form below and I'll get back to you as soon as possible.</p>
+      
+      <div class="max-w-xl mx-auto bg-slate-800/50 p-8 rounded-xl shadow-lg">
+        <form id="contact-form">
+          <div class="form-control">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="Your name" required>
+          </div>
+          
+          <div class="form-control">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Your email" required>
+          </div>
+          
+          <div class="form-control">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Your message" required></textarea>
+          </div>
+          
+          <div class="flex items-center">
+            <button type="submit" class="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition">
+              Send Message
+            </button>
+            <div class="loading-spinner" id="spinner"></div>
+          </div>
+          
+          <div class="form-message success-message" id="success-message">
+            <i class="fas fa-check-circle mr-2"></i> Your message has been sent successfully!
+          </div>
+          
+          <div class="form-message error-message" id="error-message">
+            <i class="fas fa-exclamation-circle mr-2"></i> There was an error sending your message. Please try again.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="py-8 bg-slate-900">
+    <div class="container">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-4 md:mb-0">
+          <p>&copy; 2025 RAHULKANTH R. All Rights Reserved.</p>
+        </div>
+        
+        <div class="flex space-x-4">
+          <a href="https://github.com/Rahulkanth?tab=repositories" class="text-2xl text-gray-400 hover:text-white transition">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="javascript:void(0)" class="text-2xl text-gray-400 hover:text-white transition">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a href="javascript:void(0)" class="text-2xl text-gray-400 hover:text-white transition">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="javascript:void(0)" class="text-2xl text-gray-400 hover:text-white transition">
+            <i class="far fa-envelope"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script id="app-script">
+    document.addEventListener('DOMContentLoaded', function() {
+      // Mobile menu functionality
+      const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+      const mobileCloseBtn = document.querySelector('.mobile-close-btn');
+      const mobileMenu = document.querySelector('.mobile-menu');
+      const mobileLinks = document.querySelectorAll('.mobile-menu a');
+      
+      mobileMenuBtn.addEventListener('click', function() {
+        mobileMenu.classList.add('open');
+      });
+      
+      mobileCloseBtn.addEventListener('click', function() {
+        mobileMenu.classList.remove('open');
+      });
+      
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          mobileMenu.classList.remove('open');
+        });
+      });
+      
+      // Progress bar
+      window.addEventListener('scroll', function() {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.querySelector('.progress-bar').style.width = scrolled + '%';
+      });
+      
+      // Form validation and submission
+      const contactForm = document.getElementById('contact-form');
+      const spinner = document.getElementById('spinner');
+      const successMessage = document.getElementById('success-message');
+      const errorMessage = document.getElementById('error-message');
+      
+      contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const message = document.getElementById('message').value.trim();
+        
+        // Basic validation
+        if (!name || !email || !message) {
+          showError('Please fill out all fields.');
+          return;
+        }
+        
+        if (!isValidEmail(email)) {
+          showError('Please enter a valid email address.');
+          return;
+        }
+        
+        // Show spinner
+        spinner.style.display = 'inline-block';
+        
+        // Simulate API call (would be replaced with real API later)
+        setTimeout(function() {
+          spinner.style.display = 'none';
+          showSuccess();
+          contactForm.reset();
+        }, 1500);
+      });
+      
+      function isValidEmail(email) {
+        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+      }
+      
+      function showSuccess() {
+        successMessage.style.display = 'block';
+        errorMessage.style.display = 'none';
+        
+        setTimeout(() => {
+          successMessage.style.display = 'none';
+        }, 5000);
+      }
+      
+      function showError(message) {
+        errorMessage.textContent = message;
+        errorMessage.style.display = 'block';
+        successMessage.style.display = 'none';
+        
+        setTimeout(() => {
+          errorMessage.style.display = 'none';
+        }, 5000);
+      }
+      
+      // GSAP animations
+      gsap.registerPlugin(ScrollTrigger);
+      
+      // Animate timeline items
+      gsap.utils.toArray('.timeline-item').forEach(item => {
+        gsap.fromTo(item, 
+          { opacity: 0, y: 50 },
+          { 
+            opacity: 1, 
+            y: 0, 
+            duration: 1,
+            scrollTrigger: {
+              trigger: item,
+              start: 'top 80%',
+              toggleClass: 'visible',
+              once: true
+            }
+          }
+        );
+      });
+      
+      // Animate skill items
+      gsap.utils.toArray('.skill-item').forEach((item, i) => {
+        gsap.fromTo(item, 
+          { opacity: 0, y: 20 },
+          { 
+            opacity: 1, 
+            y: 0, 
+            duration: 0.5,
+            delay: i * 0.1,
+            scrollTrigger: {
+              trigger: '.skills-grid',
+              start: 'top 80%',
+              toggleClass: {targets: item, className: 'visible'},
+              once: true
+            }
+          }
+        );
+      });
+      
+      // Hero animation
+      initHeroAnimation();
+      
+      // 3D Project Gallery
+      init3DProjects();
+    });
+
+    // Hero Background Animation with Three.js
+    function initHeroAnimation() {
+      const heroCanvas = document.getElementById('hero-canvas');
+      
+      const scene = new THREE.Scene();
+      
+      const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+      camera.position.z = 30;
+      
+      const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(window.devicePixelRatio);
+      heroCanvas.appendChild(renderer.domElement);
+      
+      // Add particles
+      const particlesGeometry = new THREE.BufferGeometry();
+      const particlesCount = 1500;
+      
+      const posArray = new Float32Array(particlesCount * 3);
+      
+      for (let i = 0; i < particlesCount * 3; i++) {
+        posArray[i] = (Math.random() - 0.5) * 50;
+      }
+      
+      particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+      
+      const particlesMaterial = new THREE.PointsMaterial({
+        size: 0.2,
+        color: 0x0ea5e9,
+        transparent: true,
+        opacity: 0.8
+      });
+      
+      const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+      scene.add(particlesMesh);
+      
+      // Animation
+      let mouseX = 0;
+      let mouseY = 0;
+      
+      function animate() {
+        requestAnimationFrame(animate);
+        
+        particlesMesh.rotation.x += 0.001;
+        particlesMesh.rotation.y += 0.001;
+        
+        particlesMesh.rotation.x += mouseY * 0.0003;
+        particlesMesh.rotation.y += mouseX * 0.0003;
+        
+        renderer.render(scene, camera);
+      }
+      
+      animate();
+      
+      // Handle mouse movement
+      document.addEventListener('mousemove', (event) => {
+        mouseX = event.clientX - window.innerWidth / 2;
+        mouseY = event.clientY - window.innerHeight / 2;
+      });
+      
+      // Handle window resize
+      window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      });
+    }
+    
+    // 3D Projects Gallery
+    function init3DProjects() {
+      const projectCanvas = document.getElementById('project-canvas');
+      
+      const scene = new THREE.Scene();
+      scene.background = new THREE.Color(0x0f172a);
+      
+      const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+      camera.position.z = 5;
+      
+      const renderer = new THREE.WebGLRenderer({ antialias: true });
+      renderer.setSize(projectCanvas.clientWidth, projectCanvas.clientHeight);
+      projectCanvas.appendChild(renderer.domElement);
+      
+      // Add ambient light
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+      scene.add(ambientLight);
+      
+      // Add directional light
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+      directionalLight.position.set(5, 5, 5);
+      scene.add(directionalLight);
+      
+      // Add orbit controls
+      const controls = new THREE.OrbitControls(camera, renderer.domElement);
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.05;
+      controls.minDistance = 3;
+      controls.maxDistance = 10;
+      
+      // Create project models (simple geometries as placeholders)
+      const projects = [
+        {
+          geometry: new THREE.BoxGeometry(1, 1, 1),
+          material: new THREE.MeshStandardMaterial({ color: 0x0ea5e9 }),
+          position: { x: -2, y: 0, z: 0 },
+          title: 'E-Commerce 3D Product Viewer',
+          description: 'An interactive 3D product visualization tool that allows users to view and customize products in real-time.'
+        },
+        {
+          geometry: new THREE.SphereGeometry(0.7, 32, 32),
+          material: new THREE.MeshStandardMaterial({ color: 0x7c3aed }),
+          position: { x: 0, y: 0, z: 0 },
+          title: 'WebXR Virtual Gallery',
+          description: 'A virtual reality art gallery experience that works across desktop, mobile, and VR headsets using WebXR.'
+        },
+        {
+          geometry: new THREE.TorusGeometry(0.6, 0.3, 16, 32),
+          material: new THREE.MeshStandardMaterial({ color: 0xef4444 }),
+          position: { x: 2, y: 0, z: 0 },
+          title: 'Interactive Data Visualization',
+          description: 'A 3D data visualization tool that transforms complex datasets into interactive, explorable 3D models.'
+        }
+      ];
+      
+      const projectMeshes = [];
+      
+      projects.forEach(project => {
+        const mesh = new THREE.Mesh(project.geometry, project.material);
+        mesh.position.set(project.position.x, project.position.y, project.position.z);
+        mesh.userData = { title: project.title, description: project.description };
+        scene.add(mesh);
+        projectMeshes.push(mesh);
+      });
+      
+      // Handle project selection
+      const raycaster = new THREE.Raycaster();
+      const mouse = new THREE.Vector2();
+      
+      const projectInfo = document.getElementById('project-info');
+      const projectTitle = document.getElementById('project-title');
+      const projectDescription = document.getElementById('project-description');
+      
+      projectCanvas.addEventListener('click', (event) => {
+        // Calculate mouse position in normalized device coordinates
+        const rect = projectCanvas.getBoundingClientRect();
+        mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+        mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+        
+        // Update raycaster
+        raycaster.setFromCamera(mouse, camera);
+        
+        // Check for intersections
+        const intersects = raycaster.intersectObjects(projectMeshes);
+        
+        if (intersects.length > 0) {
+          const selected = intersects[0].object;
+          
+          // Update project info
+          projectTitle.textContent = selected.userData.title;
+          projectDescription.textContent = selected.userData.description;
+          
+          // Show project overlay
+          projectInfo.classList.add('visible');
+        }
+      });
+      
+      // Animation loop
+      function animate() {
+        requestAnimationFrame(animate);
+        
+        // Rotate projects slowly
+        projectMeshes.forEach(mesh => {
+          mesh.rotation.x += 0.01;
+          mesh.rotation.y += 0.01;
+        });
+        
+        controls.update();
+        renderer.render(scene, camera);
+      }
+      
+      animate();
+      
+      // Handle window resize
+      window.addEventListener('resize', () => {
+        camera.aspect = projectCanvas.clientWidth / projectCanvas.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(projectCanvas.clientWidth, projectCanvas.clientHeight);
+      });
+    }
+  </script>
+</body>
+</html>
